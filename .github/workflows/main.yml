@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,7 +23,7 @@ jobs:
       with:
         node-version: '10.x'
     - run: npm install
-    - run: npm run build:prod  
+    - run: npm run build-prod  
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
