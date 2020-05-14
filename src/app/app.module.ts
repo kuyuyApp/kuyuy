@@ -14,6 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/identify/register/register.component';
+import { ProductCreateComponent } from './components/products/product-create/product-create.component';
+import { ProductCreateModule } from './components/products/product-create/product-create.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { RegisterComponent } from './components/identify/register/register.compo
     HomeComponent,
     IdentifyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { RegisterComponent } from './components/identify/register/register.compo
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ProductCreateModule
 
   ],
   providers: [],
