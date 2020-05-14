@@ -1,1 +1,18 @@
-<p>product-list works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-header class="product-card">
+            <mat-card-title>{{product.title}}</mat-card-title>
+            <mat-card-subtitle>{{product.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img matCardImage [src]="product.image">
+        <mat-card-content>
+            {{product.description}}
+        </mat-card-content>
+        <mat-card-actions align="start">
+            <button mat-button color="primary">ver mas</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            {{product.price}}
+        </mat-card-footer>
+    </mat-card>
+</div>
