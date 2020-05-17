@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.nullValidator]);
+  password = new FormControl('', [Validators.required]);
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
