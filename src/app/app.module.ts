@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {MaterialModule} from './material.module';
+import { MaterialModule } from './material.module';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IdentifyComponent } from './components/identify/identify.component';
 import { LoginComponent } from './components/identify/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,12 @@ import { LoginComponent } from './components/identify/login/login.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment),
+    AngularFireAuthModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
