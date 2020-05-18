@@ -11,32 +11,35 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="container">
-    <mat-card *ngFor="let product of products">
-        <img matCardImage [src]="product.image">
-        
-        <mat-card-header class="product-card">
-            <mat-card-title>{{product.name}}</mat-card-title>
-            <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
-        </mat-card-header>
-        <div mat-dialog-actions align="end">
-            <h3>{{product.price}} Bs.</h3>
-        </div>
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0" fxLayoutAlign="center">
+    <div *ngFor="let product of products">
 
-        
-        <div layout="row" layout-align="betweend center">
-            <button mat-raised-button color="primary" [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >ver mas</button>
-            <button mat-mini-fab aria-label="Example icon button with a heart icon">
-                <mat-icon>favorite</mat-icon>
-            </button>   
-        </div>
-        
-    </mat-card>
-</div>
+        <mat-card  fxFlex="0 1 calc(33.3% - 0)" fxFlex.lt-md="0 1 calc(50% - 0)" fxFlex.lt-sm="100%">
+            <img matCardImage [src]="product.image">
+            
+            <div gdAreas="header header | side content | footer footer" gdGap="35px" gdRows="auto auto auto" fxLayoutAlign="space-between">
+                <div gdArea="header" fxLayoutAlign="center">
+                    <mat-card-header>
+                        <mat-card-title>{{product.name}}</mat-card-title>
+                        <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
+                    </mat-card-header>
+                </div>
 
-<div mat-grid-list>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia vitae similique sit voluptates perferendis ipsum nesciunt dignissimos qui aspernatur cum sint nihil, iure maiores repudiandae accusantium. Impedit, dolor. Veniam!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia vitae similique sit voluptates perferendis ipsum nesciunt dignissimos qui aspernatur cum sint nihil, iure maiores repudiandae accusantium. Impedit, dolor. Veniam!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia vitae similique sit voluptates perferendis ipsum nesciunt dignissimos qui aspernatur cum sint nihil, iure maiores repudiandae accusantium. Impedit, dolor. Veniam!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia vitae similique sit voluptates perferendis ipsum nesciunt dignissimos qui aspernatur cum sint nihil, iure maiores repudiandae accusantium. Impedit, dolor. Veniam!</p>
+                <div gdArea="side">
+                    <h3>{{product.price}} Bs.</h3>
+                </div>
+
+                <div gdArea="content">
+                    <button mat-mini-fab aria-label="Example icon button with a heart icon">
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                </div>
+    
+                <div gdArea="footer" fxLayoutAlign="center">
+                    <button mat-raised-button color="primary" [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >ver mas
+                    </button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
 </div>
