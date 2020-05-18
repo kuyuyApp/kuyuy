@@ -1,3 +1,16 @@
+<mat-toolbar>
+    <mat-toolbar-row  fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <h2>Products</h2>
+        </div>
+        <div>
+            <button mat-mini-fab color="primary">
+                <mat-icon class="mat-18">add</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="container">
     <mat-card *ngFor="let product of products">
         <img matCardImage [src]="product.image">

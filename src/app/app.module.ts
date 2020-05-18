@@ -21,6 +21,8 @@ import { ProductListRoutingModule } from "./components/products/product-list/pro
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+//flexLayout
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     MaterialModule,
     AngularFireModule.initializeApp(environment.configFirebase),
     AngularFireStorageModule,
-    ProductListRoutingModule
+    ProductListRoutingModule,
+    FlexLayoutModule
   ],
   providers: [
     {provide: Storage, useValue:'gs://kuyuy-a261e.appspot.com'}
