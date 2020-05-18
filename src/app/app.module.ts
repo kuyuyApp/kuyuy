@@ -16,6 +16,10 @@ import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/identify/register/register.component';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
 import { ProductCreateModule } from './components/products/product-create/product-create.module';
+import { ProductDetailComponent } from "./components/products/product-detail/product-detail.component";
+import { ProductListRoutingModule } from "./components/products/product-list/product-list-routing.module";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { ProductCreateModule } from './components/products/product-create/produc
     IdentifyComponent,
     LoginComponent,
     RegisterComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductCreateComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,12 +39,17 @@ import { ProductCreateModule } from './components/products/product-create/produc
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment),
     AngularFireAuthModule,
-    ProductCreateModule
-
+    ProductCreateModule,
+    AngularFirestoreModule,
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.configFirebase),
+    AngularFireStorageModule,
+    ProductListRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: Storage, useValue:'gs://kuyuy-a261e.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
