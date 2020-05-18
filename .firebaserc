@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "kuyuy-a261e"
+  },
+  "targets": {
+    "kuyuy-a261e": {
+      "hosting": {
+        "kuyuy": [
+          "kuyuy-a261e"
+        ]
+      }
+    }
   }
 }
