@@ -12,22 +12,30 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   hide = true;
+  public errorLogin = false;
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required, Validators.nullValidator]);
   loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.nullValidator]),
   });
   constructor(private logoutSvc: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  getErrorMessage() {
+  getErrorEmail() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'You must enter a email';
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  getErrorPassword() {
+    if (this.password.hasError('required')) {
+      return 'You must enter a password';
+    }
+    return this.password.hasError('password') ? 'Not a valid password' : '';
   }
 
   async onLogin() {
@@ -37,6 +45,8 @@ export class LoginComponent implements OnInit {
       if (user) {
         //redirect to home page
         this.router.navigate(['']);
+      } else {
+        this.errorLogin = true;
       }
     } catch (error) {
       console.log(error);

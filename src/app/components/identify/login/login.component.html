@@ -3,20 +3,21 @@
         <h2>LOGIN</h2>
         <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="patito@example.com" [formControl]="email" formControlName="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput placeholder="patito@example.com" formControlName="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorEmail()}} {{email.invalid}}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" formControlName="password"
-                required>
-            <mat-error *ngIf=""></mat-error>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <mat-error *ngIf="password.invalid"> {{getErrorPassword()}}</mat-error>
+
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
+        <p *ngIf="errorLogin" style="color: red;"> Error de Password o Email </p>
         <button mat-raised-button color="warn" type="submit" style="width: 100%;">LOGIN</button>
     </form>
     <form>

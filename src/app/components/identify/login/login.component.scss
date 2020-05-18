@@ -13,3 +13,7 @@ mat-form-field {
 form {
   margin-top: 1rem;
 }
+
+mat-error + mat-error {
+  display: none;
+}

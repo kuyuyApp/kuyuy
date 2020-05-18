@@ -9,7 +9,7 @@ import { first } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  public user:User;
+  public user: User;
   constructor(private afAuth: AngularFireAuth) { }
 
   async login(email: string, password: string) {
