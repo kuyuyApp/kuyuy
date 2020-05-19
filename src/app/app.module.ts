@@ -11,15 +11,18 @@ import { IdentifyComponent } from './components/identify/identify.component';
 import { LoginComponent } from './components/identify/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/identify/register/register.component';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
 import { ProductCreateModule } from './components/products/product-create/product-create.module';
 import { ProductDetailComponent } from "./components/products/product-detail/product-detail.component";
 import { ProductListRoutingModule } from "./components/products/product-list/product-list-routing.module";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ModalComponent } from './shared/components/modal/modal.component';
+
+//firebase
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { environment } from '../environments/environment';
 
 //flexLayout
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -32,7 +35,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     RegisterComponent,
     ProductCreateComponent,
     ProductCreateComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     AngularFireStorageModule,
     ProductListRoutingModule,
     FlexLayoutModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [
     {provide: Storage, useValue:'gs://kuyuy-a261e.appspot.com'}
