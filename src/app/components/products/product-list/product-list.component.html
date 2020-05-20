@@ -14,10 +14,10 @@
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0" fxLayoutAlign="center">
     <div *ngFor="let product of products">
 
-        <mat-card  fxFlex="0 1 calc(33.3% - 0)" fxFlex.lt-md="0 1 calc(50% - 0)" fxFlex.lt-sm="100%">
-            <img matCardImage [src]="product.image">
+        <mat-card fxFlex="0 1 calc(33.3% - 0)" fxFlex.lt-md="0 1 calc(50% - 0)" fxFlex.lt-sm="100%">
+            <img matCardImage [src]="product.image" class="img">
             
-            <div gdAreas="header header | side content | footer footer" gdGap="35px" gdRows="auto auto auto" fxLayoutAlign="space-between">
+            <div gdAreas="header header | side content | footer footer" gdGap="16px" gdRows="auto auto auto" fxLayoutAlign="space-between">
                 <div gdArea="header" fxLayoutAlign="center">
                     <mat-card-header>
                         <mat-card-title>{{product.name}}</mat-card-title>
@@ -36,7 +36,7 @@
                 </div>
     
                 <div gdArea="footer" fxLayoutAlign="center">
-                    <button mat-raised-button color="primary" [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >ver mas
+                    <button class="btn" mat-raised-button color="primary" [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >ver mas
                     </button>
                 </div>
             </div>

@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RegisterComponent } from './components/identify/register/register.component';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
-import { ProductCreateModule } from './components/products/product-create/product-create.module';
 import { ProductDetailComponent } from "./components/products/product-detail/product-detail.component";
 import { ProductListRoutingModule } from "./components/products/product-list/product-list-routing.module";
 import { ModalComponent } from './shared/components/modal/modal.component';
@@ -26,6 +25,7 @@ import { environment } from '../environments/environment';
 
 //flexLayout
 import { FlexLayoutModule } from "@angular/flex-layout";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,13 +46,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    ProductCreateModule,
     AngularFirestoreModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.configFirebase),
     AngularFireStorageModule,
     ProductListRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule 
   ],
   entryComponents: [
     ModalComponent

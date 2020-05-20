@@ -7,6 +7,10 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
+import { MatInputModule } from "@angular/material/input";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const modules = [MatMenuModule,
                 MatCardModule,
@@ -14,7 +18,11 @@ const modules = [MatMenuModule,
                 MatIconModule,
                 MatGridListModule,
                 MatToolbarModule,
-                MatDialogModule
+                MatDialogModule,
+                MatFormFieldModule,
+                MatSelectModule,
+                MatInputModule,
+                MatSnackBarModule
                 ];
 
 @NgModule({
