@@ -1,0 +1,14 @@
+<mat-grid-list cols="2" gutterSize="2em">
+    <div *ngIf="product$ | async as product">
+        <mat-grid-tile>
+                <img matCardImage [src]="product.image" class="img">
+        </mat-grid-tile>    
+
+        <mat-grid-tile class="left">
+            <div>
+                <h2>{{product.name}}</h2>
+                <p>{{product.description}}</p>
+            </div>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

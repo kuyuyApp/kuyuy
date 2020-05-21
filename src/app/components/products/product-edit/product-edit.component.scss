@@ -1,0 +1,19 @@
+.button
+{
+    background-color: #3F51B5;
+    color:white;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 16px;
+    border: none;
+    width: 100%;
+    margin-top: 5px;
+}
+
+mat-form-field
+{
+    width: 300px;
+    margin-bottom: 12px;
+}

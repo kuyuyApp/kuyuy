@@ -4,24 +4,41 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IdentifyComponent } from './components/identify/identify.component';
 import { LoginComponent } from './components/identify/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/identify/register/register.component';
+import { ProductCreateComponent } from './components/products/product-create/product-create.component';
+import { ProductDetailComponent } from "./components/products/product-detail/product-detail.component";
+import { ProductListRoutingModule } from "./components/products/product-list/product-list-routing.module";
+import { ModalComponent } from './shared/components/modal/modal.component';
 
+//firebase
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
+//flexLayout
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     IdentifyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductCreateComponent,
+    ProductCreateComponent,
+    ProductDetailComponent,
+    ModalComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +47,20 @@ import { RegisterComponent } from './components/identify/register/register.compo
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment),
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.configFirebase),
+    AngularFireStorageModule,
+    ProductListRoutingModule,
+    FlexLayoutModule,
+    ReactiveFormsModule 
   ],
-  providers: [],
+  entryComponents: [
+    ModalComponent
+  ],
+  providers: [
+    {provide: Storage, useValue:'gs://kuyuy-a261e.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

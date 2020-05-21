@@ -1,0 +1,39 @@
+<div class="new-product-container">
+        <form [formGroup]="editProductForm" (ngSubmit)="editProduct(editProductForm.value)">
+            <div class="example-container">
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Nombre" formControlName="name">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="Precio" formControlName="price">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput placeholder="Descripcion" formControlName="description"></textarea>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Categoria</mat-label>
+                            <mat-select placeholder="Categorias" formControlName="category" multiple>
+                                <mat-option value="tecnologia">tecnologia</mat-option>
+                                <mat-option value="ropa">Sport</mat-option>
+                                <mat-option value="bebidas">bebidas</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <div class="container-input-file">
+                        <label class="custom-file">
+                            <input type="file" formControlName="image" (change)="handleImage($event)"/>
+                        </label>
+                    </div>
+                    <br>
+                    <div>
+                        <input class="button" type="submit" mat-raised-button color="primary" value="Guardar" [mat-dialog-close]="true">
+                    </div>
+            </div>
+        </form>
+    </div>
