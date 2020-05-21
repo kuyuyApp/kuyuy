@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IdentifyComponent } from './components/identify/identify.component';
@@ -49,7 +49,6 @@ import { ProductEditComponent } from './components/products/product-edit/product
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MaterialModule,
     AngularFireModule.initializeApp(environment.configFirebase),
     AngularFireStorageModule,
     ProductListRoutingModule,
