@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
 //flexLayout
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ProductCreateComponent,
     ProductCreateComponent,
     ProductDetailComponent,
-    ModalComponent
+    ModalComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

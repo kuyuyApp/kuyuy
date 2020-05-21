@@ -28,13 +28,25 @@ export class ProductListComponent implements OnInit {
 
   createProduct()
   {
-    console.log('created');
     this.openDialog();
   }
 
-  openDialog()
+  editProduct(product : IProduct)
   {
-    const dialogRef = this.dialog.open(ModalComponent);
+    this.openDialog(product);
+  }
+
+  openDialog(product? : IProduct)
+  {
+
+    const config = {
+      data: {
+        message: product ? 'Editar Producto' : 'Crear Producto',
+        content: product
+      }
+    };
+
+    const dialogRef = this.dialog.open(ModalComponent, config);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${result}`);
     });

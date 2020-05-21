@@ -67,11 +67,28 @@ export class ProductService {
       fileRef: this.filePath
     };
 
-    this.afs.collection<IProduct>('products').add(productObj)
+    if(product.id)
+    {
+      return this.afs.collection<IProduct>('products').doc(product.id).update(productObj);
+    }
+
+    return this.afs.collection<IProduct>('products').add(productObj)
   }
 
   public setProduct(product:IProduct, imageFile:IFile)
   {
       this.uploadImageProduct(product, imageFile);
+  }
+
+  public editProductById(product:IProduct, newImage?:IFile)
+  {
+    if(newImage)
+    {
+      this.uploadImageProduct(product, newImage);
+    }
+    else
+    {
+      return this.afs.collection<IProduct>('products').doc(product.id).update(product);
+    }
   }
 }

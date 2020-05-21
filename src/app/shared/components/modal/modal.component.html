@@ -1,4 +1,10 @@
-<h2>Create component {{message}}</h2>
+<h2>{{message.message}}</h2>
 <mat-dialog-content class="dialog-content">
-    <app-product-create></app-product-create>
+    <div *ngIf="message.content; else showCreateForm">
+        <app-product-edit [product]="message.content"></app-product-edit>
+    </div>
+    
+    <ng-template #showCreateForm>
+        <app-product-create></app-product-create>
+    </ng-template>
 </mat-dialog-content>
