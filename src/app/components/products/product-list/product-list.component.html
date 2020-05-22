@@ -4,8 +4,11 @@
             <h2>Productos</h2>
         </div>
         <div>
-            <button mat-mini-fab color="primary">
+            <button mat-mini-fab color="primary" *ngIf="auth.userLogued | async">
                 <mat-icon class="mat-18" (click)="createProduct()">add</mat-icon>
+            </button>
+            <button mat-mini-fab color="secondary" *ngIf="auth.userLogued | async">
+                <mat-icon class="mat-18" (click)="logout()">close</mat-icon>
             </button>
         </div>
     </mat-toolbar-row>
@@ -33,7 +36,7 @@
                     <button mat-mini-fab>
                         <mat-icon>favorite</mat-icon>
                     </button>
-                    <button mat-mini-fab>
+                    <button mat-mini-fab *ngIf="auth.userLogued | async"> 
                         <mat-icon (click)="editProduct(product)">edit</mat-icon>
                     </button>
                 </div>

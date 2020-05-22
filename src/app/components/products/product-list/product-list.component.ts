@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { IProduct } from '../../../shared/models/product.interface';
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "../../../shared/components/modal/modal.component";
+import { AuthService } from "../../../services/auth.service"; 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -13,7 +14,9 @@ export class ProductListComponent implements OnInit {
   products;
 
   constructor(private productService:ProductService,
-              public dialog:MatDialog) { }
+              public dialog:MatDialog,
+              public auth:AuthService
+            ) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -50,5 +53,10 @@ export class ProductListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${result}`);
     });
+  }
+
+  logout()
+  {
+    this.auth.logout();
   }
 }
