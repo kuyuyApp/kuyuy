@@ -7,5 +7,5 @@ export interface IProduct {
     image? : any,
     owner? : string,
     category : string,
-    fileRef? : string
+    fileRef? : string,
 }

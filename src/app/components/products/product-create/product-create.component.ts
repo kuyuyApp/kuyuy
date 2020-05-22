@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IProduct } from '../../../shared/models/product.interface';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-product-create',
@@ -12,11 +13,14 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class ProductCreateComponent implements OnInit {
 
   private image:any;
+  uid;
 
   durationInSeconds = 5;
 
   constructor(private productService:ProductService,
-              private _snackBar: MatSnackBar) { }
+              private _snackBar: MatSnackBar,
+              public auth:AuthService
+            ) { }
 
   public newProductForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -24,11 +28,11 @@ export class ProductCreateComponent implements OnInit {
     price: new FormControl('', Validators.required),
     cantity: new FormControl('1'),
     image: new FormControl('', Validators.required),
-    owner: new FormControl('dennis'),
     category: new FormControl(''),
   })
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.uid = await this.auth.getCurrentUserId();
   }
   
   handleImage(event:any) : void
@@ -38,6 +42,9 @@ export class ProductCreateComponent implements OnInit {
 
   async createProduct(product:IProduct)
   {
+    const owner = this.uid;
+    product = {...product, owner}
+
     try
     {
       await this.productService.setProduct(product, this.image);
@@ -46,7 +53,6 @@ export class ProductCreateComponent implements OnInit {
     catch(e)
     {
       console.log(e);
-
     }
   }
 
