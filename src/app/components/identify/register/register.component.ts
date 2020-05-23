@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
       const user = await this.authSvc.register(email, password);
       console.log(user)
       if (user) {
-        this.router.navigate(['']);
+        this.router.navigate(['/products']);
       }
 
     } catch (error) {

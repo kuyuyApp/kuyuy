@@ -18,7 +18,7 @@ export class AuthService {
   
   actualUser;
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.userLogued = afAuth.authState;
    }
 

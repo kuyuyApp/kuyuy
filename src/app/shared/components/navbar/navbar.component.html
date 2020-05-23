@@ -1,0 +1,21 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+        <a [routerLink]="['/']">Kuyuy app</a>
+       
+        <span class="spacer"></span>
+        <section>
+            
+            <div class="button-right" *ngIf="user$ | async as statusUser; else login">
+                <a mat-button [routerLink]="['/home']">Home</a>
+                <a mat-button [routerLink]="['/productos']">Productos</a>
+                <a mat-button (click)="onLogout()" *ngIf="statusUser">Logout</a>
+                <a>{{statusUser?.email}}</a>
+            </div>
+            <ng-template #login>
+                <a mat-button [routerLink]="['/home']">Home</a>
+                <a mat-button [routerLink]="['/identify']">Identificate</a>
+                <!-- <a mat-button [routerLink]="['/register']">Register</a> -->
+            </ng-template>
+        </section>
+    </mat-toolbar-row>
+</mat-toolbar>   

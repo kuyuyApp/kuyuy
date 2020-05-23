@@ -7,10 +7,11 @@ import { ProductDetailComponent } from './components/products/product-detail/pro
 
 
 const routes: Routes = [
-                        {path:'', redirectTo: 'home', pathMatch: 'full'},
+                        {path:'', redirectTo: '/home', pathMatch: 'full'},
                         { path: 'products', loadChildren: () => import('./components/products/product-list/product-list.module').then(m => m.ProductListModule) },
                         { path: 'products/:id', component: ProductDetailComponent},
-                        { path: 'identify', component: IdentifyComponent }
+                        { path: 'identify', component: IdentifyComponent },
+                        {path: 'home',component:HomeComponent}
                       ];
 
 @NgModule({
