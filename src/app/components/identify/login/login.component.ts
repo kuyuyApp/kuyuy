@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       const user = await this.logoutSvc.login(email, password);
       if (user) {
         //redirect to home page
-        this.router.navigate(['']);
+        this.router.navigate(['/products']);
       } else {
         this.errorLogin = true;
       }

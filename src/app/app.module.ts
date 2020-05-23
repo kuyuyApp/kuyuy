@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { ProductEditComponent } from './components/products/product-edit/product
     ProductCreateComponent,
     ProductDetailComponent,
     ModalComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
